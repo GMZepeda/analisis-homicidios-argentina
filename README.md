@@ -4,7 +4,7 @@ En este proyecto se busca responder a las siguientes interrogantes:
 
 1. ¿Cuáles son las tres provincias con mayor índice de homicidios?
    
-  a) De esas provincias, ¿cuál es la localidad más crítica?
+    a) De esas provincias, ¿cuál es la localidad más crítica?
   
 3. Cuál es el grupo demográfico más vulnerable (sexo, género, edad)
 4. ¿Existen meses o rangos horarios donde los casos se disparan?
