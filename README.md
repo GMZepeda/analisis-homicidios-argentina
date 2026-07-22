@@ -6,10 +6,10 @@ En este proyecto se busca responder a las siguientes interrogantes:
    
     a) De esas provincias, ¿cuál es la localidad más crítica?
   
-3. Cuál es el grupo demográfico más vulnerable (sexo, género, edad)
-4. ¿Existen meses o rangos horarios donde los casos se disparan?
-5. ¿Los hechos suceden en el domicilio de la víctima o fuera del mismo?
-6. ¿Cuál es el grupo demográfico más propenso a perpetuar el hecho delictivo (sexo, género, edad)?
+2. Cuál es el grupo demográfico más vulnerable (sexo, género, edad)
+3. ¿Existen meses o rangos horarios donde los casos se disparan?
+4. ¿Los hechos suceden en el domicilio de la víctima o fuera del mismo?
+5. ¿Cuál es el grupo demográfico más propenso a perpetuar el hecho delictivo (sexo, género, edad)?
    
    a) ¿Cuál es la principal motivación del homicidio?
 
@@ -29,4 +29,14 @@ Previo al análisis con PostgreSQL se plantea el siguiente diagrama Entidad-Rela
 
 ![Diagrama de la base de datos](docs/diagrama_er.png)
 
+## Estructura de Datos (Tablas)
+Luego del proceso de ETL, se divide el dataset original en 4 archivos CSV normalizados para su ingesta en la base de datos:
+
+- `provincia.csv`
+- `localidad.csv`
+- `hecho.csv`
+- `involucrados.csv`
+
+## ## Base de Datos y Análisis
+El análisis de los datos y la resolución de las interrogantes se realizará utilizando **PostgreSQL**.
   
