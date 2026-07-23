@@ -37,6 +37,9 @@ Luego del proceso de ETL, se divide el dataset original en 4 archivos CSV normal
 - `hecho.csv`
 - `involucrados.csv`
 
-## ## Base de Datos y Análisis
+### Normalización de Datos (Melt)
+Para alinear los datos exactamente con el Diagrama Entidad-Relación, se aplicó una transformación (Melt) sobre la tabla `involucrados`. Se separó a las víctimas y a los inculpados en filas individuales, agregando la columna `tipo_involucrado` y asignando un ID único autoincremental en preparación para SQL.
+
+## Base de Datos y Análisis
 El análisis de los datos y la resolución de las interrogantes se realizará utilizando **PostgreSQL**.
   
