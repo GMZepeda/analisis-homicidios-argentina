@@ -13,6 +13,7 @@ En este proyecto se busca responder a las siguientes interrogantes:
 4. ¿Los hechos suceden en el domicilio de la víctima o fuera del mismo?
 5. ¿Cuál es el grupo demográfico más propenso a perpetuar el hecho delictivo (sexo, género, edad)?
 6. ¿Cuál es el TOP 10 de localidades dónde sucede una mayor cantidad de femicidios?
+7. ¿Cuál es el TOP 5 de las provincias con mayor cantidad de femicidios?
 
 ## ETL
 
