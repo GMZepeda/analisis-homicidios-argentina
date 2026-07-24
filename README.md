@@ -4,14 +4,15 @@ En este proyecto se busca responder a las siguientes interrogantes:
 
 1. ¿Cuáles son las tres provincias con mayor cantidad de homicidios?
    
-    a) De esas provincias, ¿cuál es la localidad más crítica?
+    a) De esas provincias, ¿cuál es su localidad más crítica?
+
+#### A nivel nacional
   
 2. Cuál es el grupo demográfico más vulnerable (sexo, género, edad)
 3. ¿Existen meses o rangos horarios donde los casos se disparan?
 4. ¿Los hechos suceden en el domicilio de la víctima o fuera del mismo?
 5. ¿Cuál es el grupo demográfico más propenso a perpetuar el hecho delictivo (sexo, género, edad)?
-   
-   a) ¿Cuál es la principal motivación del homicidio?
+6. ¿Cuál es el TOP 10 de localidades dónde sucede una mayor cantidad de femicidios?
 
 ## ETL
 
