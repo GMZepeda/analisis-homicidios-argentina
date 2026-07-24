@@ -2,7 +2,7 @@
 
 En este proyecto se busca responder a las siguientes interrogantes:
 
-1. ¿Cuáles son las tres provincias con mayor índice de homicidios?
+1. ¿Cuáles son las tres provincias con mayor cantidad de homicidios?
    
     a) De esas provincias, ¿cuál es la localidad más crítica?
   
