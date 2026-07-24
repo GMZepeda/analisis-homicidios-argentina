@@ -1,62 +1,62 @@
-localidad_id,localidad_nombre
-100,Plottier
-40,Cutral Có
-70,Neuquén
-10,Barrancas
-30,Las Ovejas
-130,Vista Alegre Norte
-50,Salta
-220,Tartagal
-20,Colonia Santa Rosa
-200,Profesor Salvador Mazza (Est. Pocitos)
-170,Santa Fe
-310,Wheelwright
-60,San Javier
-270,Rosario
-180,Santo Tomé
-80,Puerto General San Martín
-230,Villa Ocampo
-160,Granadero Baigorria
-350,Santa Clara de Saguier
-120,Hickman
-110,Londres
-105030,General Pico
-21010,Anguil
-35020,Eduardo Castex
-210,Pérez
-90,Coronda
-21020,Santa Rosa
-999,Lastenia
-140,Máximo Paz (Est. Paz)
-260,Suardi
-150,San Luis
-450,General Roca
-390,Cinco Saltos
-400,Cipolletti
-250,Villa Carlos Paz
-190,Noetinger
-240,Valle Hermoso
-360,San Francisco
-112020,25 de Mayo
-35010,Conhello
-320,Zavalla
-560,Villa Regina
-0,Localidad sin determinar
-280,Soldini
-370,Cervantes
-140020,Toay
-290,Vicuña Mackenna
-300,Morteros
-28010,Catriló
-126070,Rancul
-340,Villa Rumipal
-70020,Gral. M.J. Campos
-440,General Fernández Oro
-154040,General Acha
-77020,Bernasconi
-126060,Quetrequén
-330,Villa  La Bolsa
-380,Chichinales
-550,Villa Manzano
-460,Ingeniero Luis A. Huergo
-480,Mainqué
+localidad_id,localidad_nombre,provincia_id
+100,Plottier,58
+40,Cutral Có,58
+70,Neuquén,58
+10,Barrancas,58
+30,Las Ovejas,58
+130,Vista Alegre Norte,58
+50,Salta,66
+220,Tartagal,66
+20,Colonia Santa Rosa,66
+200,Profesor Salvador Mazza (Est. Pocitos),66
+170,Santa Fe,82
+310,Wheelwright,82
+60,San Javier,82
+270,Rosario,82
+180,Santo Tomé,82
+80,Puerto General San Martín,82
+230,Villa Ocampo,82
+160,Granadero Baigorria,82
+350,Santa Clara de Saguier,82
+120,Hickman,66
+110,Londres,10
+105030,General Pico,42
+21010,Anguil,42
+35020,Eduardo Castex,42
+210,Pérez,82
+90,Coronda,82
+21020,Santa Rosa,42
+999,Lastenia,90
+140,Máximo Paz (Est. Paz),82
+260,Suardi,82
+150,San Luis,74
+450,General Roca,62
+390,Cinco Saltos,62
+400,Cipolletti,62
+250,Villa Carlos Paz,14
+190,Noetinger,14
+240,Valle Hermoso,14
+360,San Francisco,14
+112020,25 de Mayo,42
+35010,Conhello,42
+320,Zavalla,82
+560,Villa Regina,62
+0,Localidad sin determinar,2
+280,Soldini,82
+370,Cervantes,62
+140020,Toay,42
+290,Vicuña Mackenna,14
+300,Morteros,14
+28010,Catriló,42
+126070,Rancul,42
+340,Villa Rumipal,14
+70020,Gral. M.J. Campos,42
+440,General Fernández Oro,62
+154040,General Acha,42
+77020,Bernasconi,42
+126060,Quetrequén,42
+330,Villa  La Bolsa,14
+380,Chichinales,62
+550,Villa Manzano,62
+460,Ingeniero Luis A. Huergo,62
+480,Mainqué,62
