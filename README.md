@@ -45,3 +45,10 @@ Para alinear los datos exactamente con el Diagrama Entidad-Relación, se aplicó
 ## Base de Datos y Análisis
 El análisis de los datos y la resolución de las interrogantes se realizará utilizando **PostgreSQL**.
   
+### Hallazgos de Data Quality y Decisión Arquitectónica
+Durante la fase de modelado relacional en PostgreSQL, se auditaron los datos y se descubrieron fallas estructurales graves de origen en el dataset gubernamental:
+* **Integridad Referencial Rota:** El campo `localidad_id` contenía homónimos (mismo ID para múltiples ciudades distintas), lo que generaba multiplicaciones erróneas al cruzar tablas.
+* **Llaves Primarias Duplicadas:** Se detectaron múltiples registros con el mismo `id_hecho` pero con atributos contradictorios (ej. un mismo hecho con dos lugares diferentes).
+
+**Solución aplicada:** 
+Para no comprometer la veracidad de la información forzando una normalización que eliminaría casos reales, se decidió utilizar SQL exclusivamente para el análisis exploratorio inicial y detección de anomalías. El tablero final en Power BI fue desarrollado consumiendo directamente el dataset consolidado y limpiado previamente con Python (`homicidios_limpio.csv`), garantizando así el 100% de exactitud en las métricas.
