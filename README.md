@@ -74,3 +74,5 @@ El tablero interactivo cuenta con una página de **Portada** y tres secciones pr
 ### Cómo visualizar el proyecto
 * Si querés interactuar con el reporte completo en Power BI Desktop, podés descargar el archivo fuente desde el siguiente enlace:
 [Descargar Reporte en Power BI (.pbix)](analisis_homicidios_argentina.pbix)
+* Si preferís ver el informe completo exportado en formato PDF sin necesidad de abrir Power BI, podés acceder al documento desde aquí:
+[Ver / Descargar Reporte en PDF](docs/analisis_homicidios_argentina.pdf)
