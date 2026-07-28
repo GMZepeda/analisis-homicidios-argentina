@@ -2,9 +2,8 @@
 
 En este proyecto se busca responder a las siguientes interrogantes:
 
-1. ¿Cuáles son las tres provincias con mayor cantidad de homicidios?
-   
-    a) De esas provincias, ¿cuál es su localidad más crítica?
+1. ¿Cuáles son las tres provincias con mayor **tasa de homicidios** (riesgo poblacional)?
+   * De esas provincias principales, ¿cuáles son las localidades más críticas en cuanto a **cantidad de casos** (volumen/focos de conflicto)?
 
 #### A nivel nacional
   
