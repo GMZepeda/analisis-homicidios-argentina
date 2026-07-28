@@ -52,3 +52,12 @@ Durante la fase de modelado relacional en PostgreSQL, se auditaron los datos y s
 
 **Solución aplicada:** 
 Para no comprometer la veracidad de la información forzando una normalización que eliminaría casos reales, se decidió utilizar SQL exclusivamente para el análisis exploratorio inicial y detección de anomalías. El tablero final en Power BI fue desarrollado consumiendo directamente el dataset consolidado y limpiado previamente con Python (`homicidios_limpio.csv`), garantizando así el 100% de exactitud en las métricas.
+
+## Integración de Datos Censales y Cálculo de Tasas
+
+En esta etapa se incorporaron datos de población para normalizar las métricas y calcular el riesgo relativo:
+
+* **Fuente de datos:** Se descargaron los datos oficiales de población del Censo 2022 (INDEC).
+* **Limpieza y Estandarización:** Se limpiaron los registros y se normalizaron los nombres de las provincias para asegurar un cruce exacto con la base de homicidios y preparar el modelo relacional para Power BI.
+* **Cálculo de Tasa:** Se unieron los dataframes (`homicidios_limpio.csv` y `censo_limpio.xlsx`) para calcular la tasa de homicidios por cada 100.000 habitantes a nivel provincial.
+* **Análisis Focalizado:** Se identificó el Top 3 de provincias con la mayor tasa de homicidios, estableciendo el punto de partida para un análisis más profundo a nivel de localidades.
