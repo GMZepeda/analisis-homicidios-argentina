@@ -72,4 +72,5 @@ El tablero interactivo cuenta con una página de **Portada** y tres secciones pr
 3. **Femicidios:** Evolución histórica, distribución territorial y tipología del lugar del hecho.
 
 ### Cómo visualizar el proyecto
-* Abrir el archivo de Power BI Desktop para interactuar con el tablero completo.
+* Si querés interactuar con el reporte completo en Power BI Desktop, podés descargar el archivo fuente desde el siguiente enlace:
+[Descargar Reporte en Power BI (.pbix)](analisis_homicidios_argentina.pbix)
