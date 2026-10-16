@@ -72,12 +72,10 @@ El tablero interactivo cuenta con una página de **Portada** y tres secciones pr
 3. **Femicidios:** Evolución histórica, distribución territorial y tipología del lugar del hecho.
 
 ## Cómo visualizar el proyecto
-* Exploración Interactiva Web (Recomendado):
-[INSERTA_AQUÍ_EL_LINK_DE_STREAMLIT]
-* Si querés interactuar con el reporte completo en Power BI Desktop, podés descargar el archivo fuente desde el siguiente enlace:
-[Descargar Reporte en Power BI (.pbix)](analisis_homicidios_argentina.pbix)
-* Si preferís ver el informe completo exportado en formato PDF sin necesidad de abrir Power BI, podés acceder al documento desde aquí:
-[Ver / Descargar Reporte en PDF](docs/analisis_homicidios_argentina.pdf)
+
+- **Exploración Interactiva Web (Recomendado):** [Link a la aplicación en vivo](https://6dxutgkf7tuslryrmebhkd.streamlit.app/)
+- **Reporte en Power BI Desktop (.pbix):** [Descargar archivo fuente](analisis_homicidios_argentina.pbix)
+- **Informe Ejecutivo en PDF:** [Ver / Descargar Documento](docs/analisis_homicidios_argentina.pdf)
 
 ## Declaración de uso de Inteligencia Artificial
 
