@@ -71,8 +71,21 @@ El tablero interactivo cuenta con una página de **Portada** y tres secciones pr
 2. **Perfil Demográfico y Temporal:** Análisis de víctimas, victimarios y evolución mensual.
 3. **Femicidios:** Evolución histórica, distribución territorial y tipología del lugar del hecho.
 
-### Cómo visualizar el proyecto
+## Cómo visualizar el proyecto
+* Exploración Interactiva Web (Recomendado):
+[INSERTA_AQUÍ_EL_LINK_DE_STREAMLIT]
 * Si querés interactuar con el reporte completo en Power BI Desktop, podés descargar el archivo fuente desde el siguiente enlace:
 [Descargar Reporte en Power BI (.pbix)](analisis_homicidios_argentina.pbix)
 * Si preferís ver el informe completo exportado en formato PDF sin necesidad de abrir Power BI, podés acceder al documento desde aquí:
 [Ver / Descargar Reporte en PDF](docs/analisis_homicidios_argentina.pdf)
+
+## Declaración de uso de Inteligencia Artificial
+
+(Nota metodológica en cumplimiento con las Bases y Condiciones del Concurso Nacional de Visualización de Datos "Contar con Datos")
+
+Se declara el uso de herramientas de Inteligencia Artificial (Modelos de Lenguaje Grande / LLMs) exclusivamente para la fase de procesamiento de datos y asistencia en scripting.
+
+Finalidad: Refactorización, optimización de código en Python (Pandas, Streamlit, Plotly) y estructuración de la interfaz interactiva.
+
+Supervisión: Todo el análisis exploratorio, la concepción del enfoque analítico, el descubrimiento de las fallas de Data Quality, el diseño de la experiencia de usuario y las conclusiones extraídas fueron realizados bajo estricta dirección, revisión y supervisión humana. No se utilizó IA generativa para la creación automatizada de los gráficos finales sin intervención directa.
+
