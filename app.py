@@ -104,7 +104,7 @@ def fmt(n: float) -> str:
 # ----------------------------------------------------------------------
 # App
 # ----------------------------------------------------------------------
-st.title("Análisis de Homicidios en Argentina (2017-2024)")
+st.title("Análisis de Homicidios en Argentina (2017-2025)")
 st.markdown(
     "Exploración interactiva cruzando datos del Sistema de Alerta Temprana "
     "(Min. Seguridad) con el Censo INDEC 2022."
