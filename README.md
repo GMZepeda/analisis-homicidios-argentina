@@ -20,7 +20,7 @@ En este proyecto se busca responder a las siguientes interrogantes:
 
 Se extraen los datos de https://datos.gob.ar/ 
 
-link: https://datos.gob.ar/dataset/seguridad-homicidios-dolosos-sistema-alerta-temprana-estadisticas-criminales-republica-argentina/archivo/seguridad_6.2
+link: https://datos.gob.ar/dataset/homicidios-dolosos-sistema-de-alerta-temprana-estadisticas-criminales-en-la-republica-argentina
 
 El proceso de ETL y limpieza inicial se realiza con Python.
 
