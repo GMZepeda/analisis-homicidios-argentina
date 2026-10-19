@@ -1,4 +1,4 @@
-# Análisis de homicidios en Argentina desde 2017 - 2024
+# Análisis de homicidios en Argentina desde 2017 - 2025
 
 En este proyecto se busca responder a las siguientes interrogantes:
 
@@ -6,15 +6,16 @@ En este proyecto se busca responder a las siguientes interrogantes:
    * De esas provincias principales, ¿cuáles son las localidades más críticas en cuanto a **cantidad de casos** (volumen/focos de conflicto)?
 
 #### A nivel nacional
-  
-2. Cuál es el grupo demográfico más vulnerable (sexo, género, edad)
+
+2. ¿Cuál es el grupo demográfico más vulnerable (sexo, género, edad)?
 3. ¿Existen meses o rangos horarios donde los casos se disparan?
-4. ¿Los hechos suceden en el domicilio de la víctima o fuera del mismo?
-5. ¿Cuál es el grupo demográfico más propenso a perpetuar el hecho delictivo (sexo, género, edad)?
-6. ¿Cuál es el TOP 10 de localidades dónde sucede una mayor cantidad de femicidios?
-7. ¿Cuál es el TOP 5 de las provincias con mayor cantidad de femicidios?
-8. ¿Cuál es la tendencia o evolución de femicidios a lo largo del tiempo (por año)
-9. ¿En qué lugar suceden los femicidios con mayor frecuencia (hogar, fuera del mismo)?
+4. ¿Los hechos suceden en un domicilio particular o fuera del mismo?
+5. ¿Cuál es el TOP 10 de localidades donde sucede una mayor cantidad de femicidios?
+6. ¿Cuál es el TOP 5 de las provincias con mayor cantidad de femicidios?
+7. ¿Cuál es la tendencia o evolución de los femicidios a lo largo del tiempo (por año)?
+8. ¿En qué lugar suceden los femicidios con mayor frecuencia (domicilio particular o fuera del mismo)?
+
+> **Nota:** las preguntas 5 a 8 se basan en `categoria_femicidio`, una clasificación exploratoria que no identifica femicidios confirmados (ver sección *Clasificación exploratoria de femicidios*).
 
 ## ETL
 
@@ -46,15 +47,35 @@ Luego del proceso de ETL, se divide el dataset original en 4 archivos CSV normal
 Para alinear los datos exactamente con el Diagrama Entidad-Relación, se aplicó una transformación (Melt) sobre la tabla `involucrados`. Se separó a las víctimas y a los inculpados en filas individuales, agregando la columna `tipo_involucrado` y asignando un ID único autoincremental en preparación para SQL.
 
 ## Base de Datos y Análisis
-El análisis de los datos y la resolución de las interrogantes se realizará utilizando **PostgreSQL**.
-  
-### Hallazgos de Data Quality y Decisión Arquitectónica
-Durante la fase de modelado relacional en PostgreSQL, se auditaron los datos y se descubrieron fallas estructurales graves de origen en el dataset gubernamental:
-* **Integridad Referencial Rota:** El campo `localidad_id` contenía homónimos (mismo ID para múltiples ciudades distintas), lo que generaba multiplicaciones erróneas al cruzar tablas.
-* **Llaves Primarias Duplicadas:** Se detectaron múltiples registros con el mismo `id_hecho` pero con atributos contradictorios (ej. un mismo hecho con dos lugares diferentes).
 
-**Solución aplicada:** 
-Para no comprometer la veracidad de la información forzando una normalización que eliminaría casos reales, se decidió utilizar SQL exclusivamente para el análisis exploratorio inicial y detección de anomalías. El tablero final en Power BI fue desarrollado consumiendo directamente el dataset consolidado y limpiado previamente con Python (`homicidios_limpio.csv`), garantizando así el 100% de exactitud en las métricas.
+Se utilizó **PostgreSQL** con fines exploratorios y de práctica inicial: se planteó un modelo relacional (ver DER) y se auditó la calidad de los datos. Luego se decidió continuar el análisis con **Python y Power BI** sobre el dataset consolidado `homicidios_limpio.csv`.
+
+### Hallazgos de Data Quality
+
+* **`localidad_id` no es una clave única a nivel nacional:** el mismo código puede repetirse en departamentos distintos, por lo que identifica una localidad solo junto con provincia y departamento. Usarlo como clave en un modelo relacional genera cruces erróneos (filas duplicadas). Por eso las localidades se agrupan por provincia y nombre.
+* **`id_hecho` se repite en el dataset:** cada fila representa una víctima, por lo que los hechos con más de una víctima aparecen varias veces. Cada fila del dataset limpio es una víctima, y los hechos se cuentan con `id_hecho` únicos.
+* **Registros descartados:** se eliminaron 3 víctimas con `localidad_id` nulo.
+* **Valores de relleno:** las horas `11:11:11` y `11:11:00` parecen valores de relleno, por lo que la hora se analiza en franjas horarias.
+
+## Clasificación exploratoria de femicidios
+
+El dataset no tiene una variable que identifique femicidios ni permite determinar si un homicidio fue motivado por razones de género. Por eso se creó la columna `categoria_femicidio`, una **clasificación exploratoria** basada en la identidad de género de la víctima (`victima_identidad_genero`) y su vínculo con el inculpado (`victima_relacion_inculpado`).
+
+| Categoría | Criterio |
+|---|---|
+| **Femicidio íntimo según el vínculo** | Víctima mujer o mujer trans/travesti, con vínculo `Cónyuge/Pareja` o `Ex cónyuge/Ex pareja`. |
+| **Posible femicidio familiar** | Víctima mujer o mujer trans/travesti, con vínculo `Hijo/a`, `Padre/Madre`, `Hermano/a` u `Otros vínculos familiares`. |
+| **Vínculo sin determinar** | Víctima mujer o mujer trans/travesti, con vínculo `Sin determinación`. |
+| **Otro vínculo** | Víctima mujer o mujer trans/travesti, con vínculo no familiar, comercial o `Sin relación`. |
+| **No aplica** | Víctima identificada como `Varón` o `Varón trans`. |
+| **Identidad de género sin determinar** | Registros cuya identidad de género figura como `Sin determinar`. |
+
+### Limitaciones y uso
+
+* Es una aproximación, no una identificación judicial de femicidios. El vínculo con el inculpado no demuestra por sí solo que exista violencia de género.
+* Los casos con vínculo sin determinar pueden incluir situaciones compatibles con femicidio, por lo que los totales deben interpretarse como un **piso** y no como una cifra completa.
+* No se verificó el sexo ni el género del inculpado.
+* Para el análisis principal se utiliza **Femicidio íntimo según el vínculo** como criterio estricto. Como análisis complementario se incluye **Posible femicidio familiar**, sin que esta ampliación equivalga a femicidios confirmados.
 
 ## Integración de Datos Censales y Cálculo de Tasas
 
@@ -65,25 +86,27 @@ En esta etapa se incorporaron datos de población para normalizar las métricas 
 * **Cálculo de Tasa:** Se unieron los dataframes (`homicidios_limpio.csv` y `censo_limpio.xlsx`) para calcular la tasa de homicidios por cada 100.000 habitantes a nivel provincial.
 * **Análisis Focalizado:** Se identificó el Top 3 de provincias con la mayor tasa de homicidios, estableciendo el punto de partida para un análisis más profundo a nivel de localidades.
 
-## Estructura del Reporte (Power BI)
-El tablero interactivo cuenta con una página de **Portada** y tres secciones principales:
-1. **Contexto Geográfico:** Tasas provinciales, mapa de calor y localidades críticas.
-2. **Perfil Demográfico y Temporal:** Análisis de víctimas, victimarios y evolución mensual.
-3. **Femicidios:** Evolución histórica, distribución territorial y tipología del lugar del hecho.
+## Estructura de la aplicación (Streamlit)
+
+(Descripción de las secciones de la app: en elaboración)
 
 ## Cómo visualizar el proyecto
 
-- **Exploración Interactiva Web (Recomendado):** [Link a la aplicación en vivo](https://6dxutgkf7tuslryrmebhkd.streamlit.app/)
-- **Reporte en Power BI Desktop (.pbix):** [Descargar archivo fuente](analisis_homicidios_argentina.pbix)
-- **Informe Ejecutivo en PDF:** [Ver / Descargar Documento](docs/analisis_homicidios_argentina.pdf)
+- **Exploración interactiva web (recomendado):** [Link a la aplicación en vivo](https://6dxutgkf7tuslryrmebhkd.streamlit.app/)
+- **Reporte en Power BI Desktop (.pbix):** en desarrollo
+- **Informe ejecutivo en PDF:** en desarrollo
 
 ## Declaración de uso de Inteligencia Artificial
 
-(Nota metodológica en cumplimiento con las Bases y Condiciones del Concurso Nacional de Visualización de Datos "Contar con Datos")
+En cumplimiento de las Bases y Condiciones del Concurso Nacional de Visualización de Datos "Contar con Datos", se declara el uso de herramientas de inteligencia artificial en el desarrollo del proyecto.
 
-Se declara el uso de herramientas de Inteligencia Artificial (Modelos de Lenguaje Grande / LLMs) exclusivamente para la fase de procesamiento de datos y asistencia en scripting.
+**Herramientas utilizadas:** Claude (Anthropic), ChatGPT (OpenAI) y Gemini (Google).
 
-Finalidad: Refactorización, optimización de código en Python (Pandas, Streamlit, Plotly) y estructuración de la interfaz interactiva.
+**Etapas y finalidad:**
+- **Procesamiento de datos:** asistencia en la limpieza y estandarización con Python (Pandas) y en la verificación de problemas de calidad de datos.
+- **Código:** asistencia en la refactorización y optimización de scripts (Pandas, Streamlit, Plotly).
+- **Diseño del análisis:** discusión de criterios para la clasificación exploratoria de femicidios (`categoria_femicidio`).
+- **Documentación:** asistencia en la redacción del README.
 
-Supervisión: Todo el análisis exploratorio, la concepción del enfoque analítico, el descubrimiento de las fallas de Data Quality, el diseño de la experiencia de usuario y las conclusiones extraídas fueron realizados bajo estricta dirección, revisión y supervisión humana. No se utilizó IA generativa para la creación automatizada de los gráficos finales sin intervención directa.
 
+**Supervisión y autoría:** la IA asistió en la escritura del código de la aplicación (Streamlit y Plotly) y del procesamiento de datos, siempre bajo supervisión humana. El autor definió las preguntas de análisis, la selección de variables, los tipos de gráfico, el diseño de la experiencia de usuario, y revisó y validó el código y los resultados. No se utilizó IA generativa para crear imágenes ni para generar gráficos de forma automatizada sin intervención humana.
