@@ -88,17 +88,21 @@ En esta etapa se incorporaron datos de población para normalizar las métricas 
 
 ## Estructura de la aplicación (Streamlit)
 
-(Descripción de las secciones de la app: en elaboración)
+La aplicación interactiva está organizada en tres módulos principales de análisis:
 
-## Cómo visualizar el proyecto
+1. **Panorama General y Tasas Provinciales:** Visualización de métricas clave (total de víctimas y tasa cada 100.000 habitantes por provincia) y mapas de localidades críticas.
+2. **Demografía y Ámbito del Hecho:** Comparativa de víctimas según sexo, rangos etarios y distribución del lugar del evento (domicilio particular vs. vía pública).
+3. **Análisis de Femicidios y Violencia de Género:** Módulo focalizado en la clasificación exploratoria de femicidios (criterio estricto íntimo y ampliado familiar), vínculos con el inculpado y evolución temporal a lo largo del período 2017-2025.
 
-- **Exploración interactiva web (recomendado):** [Link a la aplicación en vivo](https://6dxutgkf7tuslryrmebhkd.streamlit.app/)
-- **Reporte en Power BI Desktop (.pbix):** en desarrollo
-- **Informe ejecutivo en PDF:** en desarrollo
+#### Cómo visualizar el proyecto
+
+* **Exploración interactiva web (Categoría Exploración interactiva):** [Link a la aplicación en vivo en Streamlit](https://6dxutgkf7tuslryrmebhkd.streamlit.app/)
+* **Historia visual / Infografía (Categoría Historia visual):** Pieza gráfica de síntesis y concientización sobre la violencia de género a puertas adentro: *«Llegamos a casa, ¿podemos descansar?»* (disponible en la raíz del repositorio como `infografia_violencia.png`).
+* **Reporte en Power BI Desktop (.pbix):** en desarrollo
 
 ## Declaración de uso de Inteligencia Artificial
 
-En cumplimiento de las Bases y Condiciones del Concurso Nacional de Visualización de Datos "Contar con Datos", se declara el uso de herramientas de inteligencia artificial en el desarrollo del proyecto.
+Se declara el uso de herramientas de inteligencia artificial en el desarrollo del proyecto.
 
 **Herramientas utilizadas:** Claude (Anthropic), ChatGPT (OpenAI) y Gemini (Google).
 
