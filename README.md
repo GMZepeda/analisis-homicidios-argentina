@@ -97,9 +97,11 @@ La aplicación interactiva está organizada en tres módulos principales de aná
 #### Cómo visualizar el proyecto
 
 * **Exploración interactiva web (Categoría Exploración interactiva):** [Link a la aplicación en vivo en Streamlit](https://6dxutgkf7tuslryrmebhkd.streamlit.app/)
-* **Historia visual / Infografía (Categoría Historia visual):** Pieza gráfica de síntesis y concientización sobre la violencia de género a puertas adentro: *«Llegamos a casa, ¿podemos descansar?»* (disponible en la raíz del repositorio como `infografia_violencia.png`).
-* **Reporte en Power BI Desktop (.pbix):** en desarrollo
+* **Historia visual / Infografía (Categoría Historia visual):** Pieza gráfica de síntesis y concientización sobre la violencia de género a puertas adentro: *«Llegamos a casa, ¿podemos descansar?»*
 
+  ![Infografía - Llegamos a casa, ¿podemos descansar?](docs/infografia_violencia.png)
+
+* **Reporte en Power BI Desktop (.pbix):** en desarrollo
 ## Declaración de uso de Inteligencia Artificial
 
 Se declara el uso de herramientas de inteligencia artificial en el desarrollo del proyecto.
