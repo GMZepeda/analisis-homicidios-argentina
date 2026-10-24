@@ -258,17 +258,23 @@ txt <- function(x, y, label, px, colour = V_DARK, face = "plain",
 
 # ---------------- 4. ENCABEZADO (centrado) ----------------
 p <- p +
-  annotate("rect", xmin = 0, xmax = W, ymin = 1630, ymax = H, fill = V_DARK, colour = NA) +
-  txt(540, 1884, "VIOLENCIA DE GÉNERO  ·  DATOS DE ARGENTINA", 19, V_LIGHT, "bold", 0.5) +
-  txt(540, 1780, "«Llegamos a casa,", 100, "white", "bold.italic", 0.5, lh = 1.05) +
-  txt(540, 1696, "podemos descansar...»", 100, "white", "bold.italic", 0.5, lh = 1.05) +
-  txt(540, 1652, "Una frase que en nuestro país no se aplica a las mujeres", 22, "#EBDCF4", hjust = 0.5)
+  annotate("rect", xmin = 0, xmax = W, ymin = 1630, ymax = H,
+           fill = V_DARK, colour = NA) +
+  txt(540, 1884, "VIOLENCIA DE GÉNERO  ·  DATOS DE ARGENTINA",
+      19, V_LIGHT, "bold", 0.5) +
+  txt(540, 1780, "«Llegamos a casa,", 100, "white",
+      "bold.italic", 0.5, lh = 1.05) +
+  txt(540, 1696, "¿podemos descansar?»", 100, "white",
+      "bold.italic", 0.5, lh = 1.05) +
+  txt(540, 1652,
+      "Violencia de género y espacio privado en Argentina (2017-2025)",
+      22, "#EBDCF4", hjust = 0.5)
 
 # ---------------- 5. DÓNDE OCURREN ----------------
 p <- p +
   txt(64, 1582, "¿DÓNDE OCURREN LOS HOMICIDIOS (2017 - 2025)?", 23, V_MAIN, "bold") +
   txt(64, 1540, paste0("El ", f1(pct_fuera), " % de los homicidios ocurre fuera del domicilio particular y el ",
-                       f1(pct_dom), " % en el mismo. En el ", f1(pct_sd),
+                       f1(pct_dom), " % dentro de él. En el ", f1(pct_sd),
                        " % restante, el lugar no quedó registrado."), 18, TEXTO)
 
 x0 <- 64; ancho <- 952; gap <- 4
@@ -281,9 +287,9 @@ p <- p +
   annotate("rect", xmin = x0, xmax = xa - gap, ymin = 1436, ymax = 1498, fill = V_MAIN,  colour = NA) +
   annotate("rect", xmin = xa, xmax = xb - gap, ymin = 1436, ymax = 1498, fill = V_MID,   colour = NA) +
   annotate("rect", xmin = xb, xmax = xc,       ymin = 1436, ymax = 1498, fill = V_LIGHT, colour = NA) +
-  txt(x0 + w1 / 2, 1467, paste0(f1(pct_fuera), " %"), 27, "white", "bold", 0.5, 0.5) +
-  txt(xa + w2 / 2, 1467, paste0(f1(pct_dom), " %"),   27, "white", "bold", 0.5, 0.5) +
-  txt(xb + w3 / 2, 1467, paste0(f1(pct_sd), " %"),    22, V_DARK, "bold", 0.5, 0.5)
+  txt(x0 + (w1 - gap) / 2, 1467, paste0(f1(pct_fuera), " %"), 27, "white", "bold", 0.5, 0.5) +
+  txt(xa + (w2 - gap) / 2, 1467, paste0(f1(pct_dom), " %"),   27, "white", "bold", 0.5, 0.5) +
+  txt(xb + w3 / 2,         1467, paste0(f1(pct_sd), " %"),    22, V_DARK, "bold", 0.5, 0.5)
 
 leg <- function(x, col, label) {
   list(
@@ -292,9 +298,9 @@ leg <- function(x, col, label) {
   )
 }
 p <- p +
-  leg(x0,  V_MAIN,  paste0("Fuera del domicilio · ",  fm(n_fuera))) +
-  leg(448, V_MID,   paste0("Domicilio particular · ", fm(n_dom))) +
-  leg(792, V_LIGHT, paste0("Sin registrar · ",        fm(n_sd)))
+  leg(x0,  V_MAIN,  paste0("Fuera del domicilio (",  fm(n_fuera), ")")) +
+  leg(448, V_MID,   paste0("Domicilio particular (", fm(n_dom),   ")")) +
+  leg(792, V_LIGHT, paste0("Sin registrar (",        fm(n_sd),    ")"))
 
 # ---------------- 6. POR SEXO ----------------
 p <- p +
